@@ -66,9 +66,3 @@ function SlowPost({ post }: { post: Post }) {
 		</li>
 	)
 }
-
-;<div className="mt-4">
-	{tab === 'home' && <h1 className="text-3xl font-bold">Home Page</h1>}
-	{tab === 'posts' && <Posts />}
-	{tab === 'about' && <h1 className="text-3xl font-bold">About Page</h1>}
-</div>
