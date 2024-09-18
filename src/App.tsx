@@ -1,5 +1,6 @@
 import { useState, useTransition } from 'react'
 import { Posts } from './components/posts'
+import TabItem from './components/tab-item'
 
 function App() {
 	const [tab, setTab] = useState<'home' | 'posts' | 'about'>('home')
@@ -14,30 +15,15 @@ function App() {
 	return (
 		<main className="min-h-screen bg-gray-100 p-8">
 			<nav className="mb-8 flex space-x-4">
-				<button
-					onClick={() => switchTab('home')}
-					className={`px-4 py-2 rounded-lg transition ${
-						tab === 'home' ? 'bg-gray-800 text-white' : 'bg-white text-black border'
-					}`}
-				>
+				<TabItem tab={tab} currentTab="home" onClick={() => switchTab('home')}>
 					Home
-				</button>
-				<button
-					onClick={() => switchTab('posts')}
-					className={`px-4 py-2 rounded-lg transition ${
-						tab === 'posts' ? 'bg-gray-800 text-white' : 'bg-white text-black border'
-					}`}
-				>
+				</TabItem>
+				<TabItem tab={tab} currentTab="posts" onClick={() => switchTab('posts')}>
 					Posts
-				</button>
-				<button
-					onClick={() => switchTab('about')}
-					className={`px-4 py-2 rounded-lg transition ${
-						tab === 'about' ? 'bg-gray-800 text-white' : 'bg-white text-black border'
-					}`}
-				>
+				</TabItem>
+				<TabItem tab={tab} currentTab="about" onClick={() => switchTab('about')}>
 					About
-				</button>
+				</TabItem>
 			</nav>
 			<div className="mt-4">
 				{isPending && <p className="text-blue-500">Loading...</p>}
